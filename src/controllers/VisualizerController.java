@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,14 +117,28 @@ public class VisualizerController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		byte[] encoded;
 		try {
 			SaveWrapper save = (SaveWrapper) os.readObject();
 			viewManager = makeViewsManager();
 			modelManager = new CandidateClassManager();
             for (File file : save.getFiles()) {
-                byte[] encoded = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
+				try {
+					encoded = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
+				} catch (NoSuchFileException e) {
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Se buscara path relativo");
 
-                viewManager.addLegacyCode(file.getName(), new String(encoded));
+						String[] split = file.getPath().split("\\\\");
+						String fileName = split[split.length-1];
+						String fullPath = save.getFiles().get(0).getParent() + "/" + fileName;
+						encoded = Files.readAllBytes(Paths.get(fullPath));
+
+
+				}
+
+				String name = file.getName().contains("/") || file.getName().contains("\\") ? file.getName().split("/|\\\\")[file.getName().split("/|\\\\").length-1] : file.getName();
+                viewManager.addLegacyCode(name, new String(encoded));
             }
             for (CandidateClass ccd : save.getCcds()) {
 				List<JavaAttribute> ccdAttributes = ccd.getAttributes();
@@ -213,7 +228,9 @@ public class VisualizerController {
 				text = text.concat(line + "\n");
 			} while(line != null);
 		} catch (java.io.IOException ignored) {}
-		viewManager.addLegacyCode(toShow.getName(), text);
+
+		String name = toShow.getName().contains("/") || toShow.getName().contains("\\") ? toShow.getName().split("/|\\\\")[toShow.getName().split("/|\\\\").length-1] : toShow.getName();
+		viewManager.addLegacyCode(name, text);
 	}
 
 	public void methodPressed(ActionEvent event){

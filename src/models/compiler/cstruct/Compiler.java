@@ -141,10 +141,22 @@ public class Compiler {
         List<Token> tokenList = null;
         try {
             tokenList = tokenListFactory.getTokenFileFromCFile(new BufferedReader(new FileReader(myFile)));
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, e);
-        } catch (InvalidExpressionException e) {
+            JOptionPane.showMessageDialog(null, "Se buscara path relativo");
+            try {
+                String[] split = myFile.getPath().split("\\\\");
+                String fileName = split[split.length-1];
+                String fullPath = getMyFile().getParent() + "/" + fileName;
+                tokenList = tokenListFactory.getTokenFileFromCFile(new BufferedReader(new FileReader(fullPath)));
+                /*alreadyProcessed.remove(myFile);
+                myFile = new File(fullPath);
+                alreadyProcessed.add(myFile);*/
+            }catch (Exception e1){
+                e1.printStackTrace();
+                JOptionPane.showMessageDialog(null, e1);
+            }
+        }catch (IOException | InvalidExpressionException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
         }

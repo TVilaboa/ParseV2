@@ -18,6 +18,7 @@ public class LegacyFileChooserView extends JFrame{
 
 	public LegacyFileChooserView(){
 		super(LanguageManager.getString("programName"));
+
 		setContentPane(root);
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -28,6 +29,8 @@ public class LegacyFileChooserView extends JFrame{
 	}
 
 	public void addBrowseButtonListener(ActionListener browseButtonListener){
+
+
 		browseButton.addActionListener(browseButtonListener);
 	}
 

@@ -26,7 +26,10 @@ public class VisualizerView extends JFrame{
 	                           /*ActionListener renameListener, ActionListener deleteListener, ActionListener commentListener,*/ ActionListener rankingListener,ActionListener browseCode,
                           ActionListener loadAction,ActionListener saveAction) {
 		super();
-		setContentPane(root);
+
+			setContentPane(root);
+
+
 		this.methodButtonListener = methodButtonListener;
 		/*this.renameListener = renameListener;
 		this.deleteListener = deleteListener;

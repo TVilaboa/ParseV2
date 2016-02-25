@@ -1,4 +1,4 @@
-Analisys for : D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\elevs.c
+Analisys for : /root/Documents/Projects/ParseV2/src/testcases/Case 2/elevs.c
 
 Quantities are : 
 
@@ -30,7 +30,7 @@ This is a basic module.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Created Modules are: (4)
 
-	"queuecalls.h"
+	"D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\queuecalls.h"
 
 	The functions in this module are (2) : 
 
@@ -69,7 +69,7 @@ This is a basic module.
 	 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
-	"treeElevators.h"
+	"D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\treeElevators.h"
 
 	This module has no functions 
 	This module has no modules 
@@ -79,7 +79,7 @@ This is a basic module.
 	 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
-	"call.h"
+	"D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\call.h"
 
 	This module has no functions 
 	This module has no modules 
@@ -89,7 +89,7 @@ This is a basic module.
 	 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
-	"elevator.h"
+	"D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\elevator.h"
 
 	This module has no functions 
 	This module has no modules 
@@ -175,6 +175,19 @@ It has no GlobalVariables
 
 Candidate classes are:(5)
 
+CandidateClass: D:\Projects\Proyecto Nacho Cassol\Candidate-Class-Visualizer-master\src\testcases\Case 2\queuecalls.h
+	Attributes are: 
+			Node Node
+			int siz
+			Node rear
+			Node front
+	Methods are: 
+			Method name: display
+	Returns: void
+	The arguments are:
+			Method name: sizeofqueue
+	Returns: int
+	The arguments are:
 CandidateClass: Node
 	Attributes are: 
 			call Data
@@ -298,19 +311,6 @@ CandidateClass: node
 	The arguments are:
 		node tree
 		call val
-CandidateClass: queuecalls.h
-	Attributes are: 
-			Node Node
-			int siz
-			Node rear
-			Node front
-	Methods are: 
-			Method name: display
-	Returns: void
-	The arguments are:
-			Method name: sizeofqueue
-	Returns: int
-	The arguments are:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 InsideMainAttributes are:(3)
 
